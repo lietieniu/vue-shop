@@ -6,13 +6,16 @@
         <van-icon name="delete-o" class="icon" />
       </div>
       <div class="down">
+        <!-- Tag 标签 -->
         <van-tag
           plain
+          closeable
           type="default"
           size="medium"
           text-color="#ad0000"
           v-for="(item, index) in historyKeywordList"
           :key="index"
+          @click="tagClick(item)"
           >{{ item }}
         </van-tag>
       </div>
@@ -28,6 +31,7 @@
           v-for="(item, index) in hotKeywordList"
           :key="index"
           :type="item.is_hot == 1 ? 'danger' : 'default'"
+          @click="tagClick(item.keyword)"
           >{{ item.keyword }}</van-tag
         >
       </div>
@@ -39,6 +43,12 @@
 export default {
   name: "HistoryHot",
   props: ["historyKeywordList", "hotKeywordList"],
+  methods:{
+    tagClick(item){
+      console.log("item",item);
+      this.$emit('tagClick',item);
+    }
+  }
 };
 </script>
 
@@ -49,7 +59,7 @@ export default {
   margin-bottom: 0.18rem;
   .top {
     display: flex;
-    justify-content: space-between; //分布在两边
+    justify-content: space-between; //水平方向分布在两边
     align-items: center; //垂直居中
     height: 0.5rem;
     font-size: 0.2rem;

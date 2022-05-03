@@ -56,13 +56,5 @@ export default {
 </script>
 
 <style lang="css" scoped>
- /* .fade-enter,.fade-leave-to{
-  right: -100%;
- }
- .fade-enter-active,.fade-leave-active{
-   transition: right 0.3s linear;
- }
- .fade-to,.fade-leave{
-     right: 0;
- } */
+
 </style>

@@ -9,8 +9,12 @@ import './vantUi';
 //3引入css-reset(标签重置);
 import 'reset-css'
 
-
 Vue.config.productionTip = false;
+
+//1.注册一个全局过滤器
+Vue.filter('filterMoney',function(val){
+   return '￥ '+val.toFixed(2)+' 元'
+})
 
 new Vue({
   router,
