@@ -13,3 +13,5 @@ export const getSearchData=(params)=>request.get('/goods/list',{params})
 
 //4.实时搜索功能
 export const getTimeSearch=(params)=>request.get('search/helper',{params})
+//5.清除历史记录
+export const clearHistory=()=>request.post('/search/clearhistory');

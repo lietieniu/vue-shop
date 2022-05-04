@@ -14,14 +14,11 @@
       :historyKeywordList="historyKeywordList"
       :hotKeywordList="hotKeywordList"
       @tagClick="tagClick"
+      @clearHistory="clearHistory"
     />
 
     <!-- 2.搜索列表区块 -->
-    <MyList 
-    v-else-if="blockShow == 2" 
-    :arr="arr" 
-    @tagClick="tagClick"
-    />
+    <MyList v-else-if="blockShow == 2" :arr="arr" @tagClick="tagClick" />
 
     <!-- 3.产品product区块 -->
     <MyProduct
@@ -38,7 +35,12 @@
 import HistoryHot from "../components/historyHot.vue";
 import MyProduct from "../components/myProduct.vue";
 import MyList from "../components/myList.vue";
-import { popupSearchData, getSearchData, getTimeSearch } from "../request/api";
+import {
+  popupSearchData,
+  getSearchData,
+  getTimeSearch,
+  clearHistory,
+} from "../request/api";
 export default {
   name: "MyPopup",
   components: { HistoryHot, MyProduct, MyList },
@@ -121,22 +123,32 @@ export default {
     },
     //3.实时搜索函数
     timeSearch() {
-      let _this=this
+      let _this = this;
       getTimeSearch({
         keyword: this.popValue,
       }).then((res) => {
-      if(res.errno==0){
-       // console.log("res2", res);
-        _this.blockShow=2 //实时数据搜索成功后,跳转到搜索列表区块
-        _this.arr=res.data;
-      }
+        if (res.errno == 0) {
+          // console.log("res2", res);
+          _this.blockShow = 2; //实时数据搜索成功后,跳转到搜索列表区块
+          _this.arr = res.data;
+        }
       });
     },
     //4.Tag标签点击函数
-    tagClick(value){
-      this.popValue=value;
-      this.onSearch()
-    }
+    tagClick(value) {
+      this.popValue = value;
+      this.onSearch();
+    },
+    //5.删除历史搜索记录函数
+    clearHistory() {
+      clearHistory().then((res) => {
+        console.log("resSearch", res);
+        if (res.errno == 0) {
+          this.$toast("删除成功");
+          this.historyKeywordList = res.data;
+        }
+      });
+    },
   },
   //1.页面创建进行ajax交互
   created() {

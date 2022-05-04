@@ -2,7 +2,7 @@
 import Vue from "vue";
 import {
     Button, Search, Swipe, SwipeItem, Icon, Tag, DropdownMenu, DropdownItem,
-    Empty,List,Cell
+    Empty, List, Cell, Toast, Tabbar, TabbarItem, Col, Row
 } from "vant";
 
 Vue.use(Button)
@@ -16,3 +16,8 @@ Vue.use(DropdownItem);
 Vue.use(Empty)
 Vue.use(List)
 Vue.use(Cell)
+Vue.use(Toast) //全局使用 this.$toast("删除成功")
+Vue.use(Tabbar)
+Vue.use(TabbarItem)
+Vue.use(Col)
+Vue.use(Row)

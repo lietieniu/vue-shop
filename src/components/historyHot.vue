@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="history">
+    <div class="history" v-if="historyKeywordList.length!==0">
       <div class="top">
         <h4>历史记录</h4>
-        <van-icon name="delete-o" class="icon" />
+        <van-icon name="delete-o" class="icon" @click="clearHistory"/>
       </div>
       <div class="down">
         <!-- Tag 标签 -->
@@ -40,13 +40,20 @@
 </template>
 
 <script>
+
 export default {
   name: "HistoryHot",
   props: ["historyKeywordList", "hotKeywordList"],
   methods:{
+    //1.标签点击进行搜素
     tagClick(item){
       console.log("item",item);
       this.$emit('tagClick',item);
+    },
+    //2.清除历史记录函数
+    clearHistory(){
+   
+    this.$emit('clearHistory');
     }
   }
 };
