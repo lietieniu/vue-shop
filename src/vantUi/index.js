@@ -2,7 +2,7 @@
 import Vue from "vue";
 import {
     Button, Search, Swipe, SwipeItem, Icon, Tag, DropdownMenu, DropdownItem,
-    Empty, List, Cell, Toast, Tabbar, TabbarItem, Col, Row
+    Empty, List, Cell, Toast, Tabbar, TabbarItem, Col, Row,Form,Field
 } from "vant";
 
 Vue.use(Button)
@@ -21,3 +21,5 @@ Vue.use(Tabbar)
 Vue.use(TabbarItem)
 Vue.use(Col)
 Vue.use(Row)
+Vue.use(Form);
+Vue.use(Field);

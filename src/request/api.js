@@ -15,3 +15,6 @@ export const getSearchData=(params)=>request.get('/goods/list',{params})
 export const getTimeSearch=(params)=>request.get('search/helper',{params})
 //5.清除历史记录
 export const clearHistory=()=>request.post('/search/clearhistory');
+
+//6.登录接口
+export const goLogin=(params)=>request.post('/auth/loginByWeb',params)
