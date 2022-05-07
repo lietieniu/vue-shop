@@ -1,15 +1,15 @@
 <template>
   <div id="app">
     <router-view />
-    <MyTabbar/>
+    <MyTabbar v-if="$route.meta.showTabbar" />
   </div>
 </template>
 
 <script>
-import MyTabbar from './components/myTabbar.vue'
+import MyTabbar from "./components/myTabbar.vue";
 export default {
-  components:{MyTabbar}
-}
+  components: { MyTabbar },
+};
 </script>
 <style>
 #app {
@@ -28,7 +28,7 @@ html {
   /*2.规定1rem=100px */
   font-size: 100px;
 }
-body{
+body {
   font-size: 0.14rem;
 }
 </style>

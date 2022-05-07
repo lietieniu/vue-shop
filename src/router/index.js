@@ -24,7 +24,8 @@ const routes = [
     component: Home,
     meta: {
       //元素集数据
-      num: 0
+      num: 0,
+      showTabbar:true
     },
     children: [
       //子路由的路径要么把/去掉  或者加上父级路由
@@ -40,7 +41,8 @@ const routes = [
     path: '/topic',
     name: 'Topic',
     meta: {
-      num: 1
+      num: 1,
+      showTabbar:true
     },
     component: () => import('../views/Topic.vue')
   },
@@ -49,7 +51,8 @@ const routes = [
     path: '/category',
     name: 'CateGory',
     meta: {
-      num: 2
+      num: 2,
+      showTabbar:true
     },
     component: () => import('../views/cateGory.vue')
   },
@@ -58,7 +61,8 @@ const routes = [
     path: '/cart',
     name: 'Cart',
     meta: {
-      num: 3
+      num: 3,
+      showTabbar:true
     },
     component: () => import('../views/Cart.vue')
   },
@@ -67,10 +71,18 @@ const routes = [
     path: '/user',
     name: 'User',
     meta: {
-      num: 4
+      num: 4,
+      showTabbar:true
     },
     component: () => import('../views/User.vue')
-  }
+  },
+  //5.产品详情组件
+  {
+    path: '/productDetail',
+    name: 'ProductDetail',
+    component: () => import('../views/productDetail.vue')
+  },
+
 
 ]
 

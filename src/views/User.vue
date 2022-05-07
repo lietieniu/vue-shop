@@ -33,6 +33,15 @@
         </div>
       </van-form>
     </div>
+    <van-grid :column-num="3" square>
+      <van-grid-item
+        v-for="value in 6"
+        :key="value"
+        icon="photo-o"
+        text="文字"
+        @click="gridClick"
+      />
+    </van-grid>
   </div>
 </template>
 
@@ -59,8 +68,8 @@ export default {
       let newUserInfo = JSON.parse(userinfo);
       this.userImg = newUserInfo.avatar;
       this.nickName = newUserInfo.username;
-    }else{
-      this.show=true
+    } else {
+      this.show = true;
     }
   },
   methods: {
@@ -110,6 +119,11 @@ export default {
       //   this.show = true;
       // }
       this.show = true;
+    },
+    //3.宫格点击事件
+    gridClick(value) {
+      console.log("value", value);
+      this.$toast("该功能尚未开放")
     },
   },
 };

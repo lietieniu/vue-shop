@@ -18,3 +18,6 @@ export const clearHistory=()=>request.post('/search/clearhistory');
 
 //6.登录接口
 export const goLogin=(params)=>request.post('/auth/loginByWeb',params)
+
+//7.产品明细接口
+export const getProductDetail=(params)=>request.get('/goods/detail',{params})

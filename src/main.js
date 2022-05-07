@@ -13,7 +13,8 @@ Vue.config.productionTip = false;
 
 //1.注册一个全局过滤器
 Vue.filter('filterMoney',function(val){
-   return '￥ '+val.toFixed(2)+' 元'
+  let newValue=new Number(val)
+   return '￥ '+newValue.toFixed(2)+' 元'
 })
 
 new Vue({
